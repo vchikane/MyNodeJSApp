@@ -2,5 +2,8 @@
 	<%x= JSON.parse(users[i]) %>
 	<%= x.empid%>
 	<%= x.name%>
-	<%= x.mobile%></br>
+	<%= x.mobile%>
+	<a href="/edit_users?u_id=<%=i%>" >Edit</a>
+	<a href="/delete_user?u_id=<%=i%>" >Delete</a>
+	</br>
 <%}%>
