@@ -1,0 +1,7 @@
+Step-1 - Deploy the application on localhost
+Step-2 - Start npm (will get start on localhost with default port 3000)
+Step-3 - Start Redis server
+Step-4 - Run the path http://localhost:3000 , It will show - EXPRESS
+Step-5 - Use path http://localhost:3000/create - This will show you the page to fill the details for creating a new user.
+Step-6 - Use path http://localhost:3000/users - This will list all the users. 
+Step-7 - On user list page you can find links to edit or delete any particular user. Just click on the link for any user, you will get new page with the details of selected user.
