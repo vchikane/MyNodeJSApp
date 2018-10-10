@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><APIProxy name="forecastweatherapi" revision="1">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedBy>Diego</CreatedBy>
+    <Description>Recommended Forecast Weather API</Description>
+    <DisplayName>forecastweatherapi</DisplayName>
+</APIProxy>
