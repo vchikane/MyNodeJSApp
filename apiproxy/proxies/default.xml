@@ -4,15 +4,7 @@
     <Flows>
         <Flow name="all">
             <Description/>
-            <Request/>
-            <Response>
-                <Step>
-                    <FaultRules/>
-                    <Name>xmltojson-1</Name>
-                </Step>
-                <Step>
-                    <FaultRules/>
-                    <Name>Assign-Message-1</Name>
+           ign-Message-1<
                 </Step>                
             </Response>
             <Condition>(proxy.pathsuffix MatchesPath &quot;/**&quot;) and (request.verb = &quot;GET&quot;)</Condition>

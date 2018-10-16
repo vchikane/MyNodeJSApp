@@ -7,7 +7,7 @@
         <Response/>
     </PreFlow>
     <HTTPTargetConnection>
-        <URL>http://weather.yahooapis.com</URL>
+        >
     </HTTPTargetConnection>
     <PostFlow name="PostFlow">
         <Request/>
