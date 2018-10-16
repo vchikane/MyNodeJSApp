@@ -24,13 +24,14 @@ node {
             bat 'mvn clean install -Ptest'
         }
     }
+    
    } catch (e) {
        currentBuild.result = "FAILED"
        throw e
     } finally {
        notifyBuild(currentBuild.result)
     }
-  }
+  
 }
 
 // function for sending slack notifictions
