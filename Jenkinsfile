@@ -34,6 +34,7 @@ node{
        currentBuild.result = "FAILED"
    } finally {
        notifyBuild(currentBuild.result)
+   }
 }
 
 // function for sending slack notifictions
