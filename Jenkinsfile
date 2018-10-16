@@ -21,7 +21,7 @@ node {
     stage ('Build') {
         withMaven(maven : 'maven_3_5_4'){
             def maven = tool name: 'maven_3_5_4', type: 'maven'
-            bat 'mvn clean install -Ptes'
+            bat 'mvn clean install -Ptest'
         }
     }
 
