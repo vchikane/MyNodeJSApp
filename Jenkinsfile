@@ -21,10 +21,10 @@ node {
     stage ('Build') {
         withMaven(maven : 'maven_3_5_4'){
             def maven = tool name: 'maven_3_5_4', type: 'maven'
-            bat 'mvn clean install -Ptest'
+            bat 'mvn clean install -Ptes'
         }
     }
-    
+
    } catch (e) {
        currentBuild.result = "FAILED"
        throw e
