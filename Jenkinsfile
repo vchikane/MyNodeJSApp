@@ -27,7 +27,6 @@ node {
 
    } catch (e) {
        currentBuild.result = "FAILED"
-       echo $e
        throw e
     } finally {
        notifyBuild(currentBuild.result)
