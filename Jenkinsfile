@@ -1,11 +1,6 @@
-node{
+node {
    try {
     notifyBuild('STARTED')
-
-    // stage ('STARTED') {
-    //     // send build started notifications
-        // slackSend (color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-    // }
 
     stage("SonarQube analysis") {
       withSonarQubeEnv('sonarqube'){
@@ -27,14 +22,15 @@ node{
         withMaven(maven : 'maven_3_5_4'){
             def maven = tool name: 'maven_3_5_4', type: 'maven'
             bat 'mvn clean install -Ptest'
-            // notifyBuild('SUCCESSFUL')
         }
     }
    } catch (e) {
        currentBuild.result = "FAILED"
-   } finally {
+       throw e
+    } finally {
        notifyBuild(currentBuild.result)
-   }
+    }
+  }
 }
 
 // function for sending slack notifictions
