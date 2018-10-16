@@ -1,5 +1,5 @@
 node{
-
+   try {
     notifyBuild('STARTED')
 
     // stage ('STARTED') {
@@ -18,7 +18,6 @@ node{
         timeout(time: 10, unit: 'SECONDS') {
             def qg = waitForQualityGate()
             if (qg.status != 'OK') {
-                notifyBuild('FAILED')
                 error "Pipeline aborted due to quality gate failure: ${qg.status}"
             }
         }
@@ -28,9 +27,13 @@ node{
         withMaven(maven : 'maven_3_5_4'){
             def maven = tool name: 'maven_3_5_4', type: 'maven'
             bat 'mvn clean install -Ptest'
-            notifyBuild('SUCCESSFUL')
+            // notifyBuild('SUCCESSFUL')
         }
     }
+   } catch (e) {
+       currentBuild.result = "FAILED"
+   } finally {
+       notifyBuild(currentBuild.result)
 }
 
 // function for sending slack notifictions
