@@ -1,10 +1,8 @@
 node{
 
     stage ('Start') {
-      steps {
         // send build started notifications
         slackSend (color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-      }
     }
 
     stage("SonarQube analysis") {
@@ -22,7 +20,7 @@ node{
             }
         }
     }
-    
+
     stage ('Build') {
         withMaven(maven : 'maven_3_5_4'){
             def maven = tool name: 'maven_3_5_4', type: 'maven'
