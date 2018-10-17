@@ -32,13 +32,13 @@ node {
        echo env.STAGE_NAME
        throw e
     } finally {
-       notifyBuild(currentBuild.result)
+       notifyBuild(currentBuild.result, e.toString())
     }
   
 }
 
 // function for sending slack notifictions
-def notifyBuild(String buildStatus = 'STARTED') {
+def notifyBuild(String buildStatus = 'STARTED', String ex) {
   // build status of null means successful
   buildStatus =  buildStatus ?: 'SUCCESSFUL'
 
@@ -57,7 +57,7 @@ def notifyBuild(String buildStatus = 'STARTED') {
     colorCode = '#00FF00'
   } else {
       echo "chikane"
-      echo e.toString()
+      echo ex
     color = 'RED'
     colorCode = '#FF0000'
   }
