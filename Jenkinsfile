@@ -43,7 +43,7 @@ def notifyBuild(String buildStatus = 'STARTED', String ex) {
   // Default values
   def colorName = 'RED'
   def colorCode = '#FF0000'
-  def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}] ${env.STAGE_NAME}'"
+  def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
   def summary = "${subject} (${env.BUILD_URL})"
 
   // Override default values based on build status
@@ -57,7 +57,7 @@ def notifyBuild(String buildStatus = 'STARTED', String ex) {
     color = 'RED'
     colorCode = '#FF0000'
     errorMessage = ex
-    summary = summary + ' ' + ex
+    summary = summary + ' ERROR: ' + ex
   }
 
   //send slack notification
