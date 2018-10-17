@@ -29,6 +29,7 @@ node {
        currentBuild.result = "FAILED"
        echo "vivek"
        echo e.toString()
+       echo env.STAGE_NAME
        throw e
     } finally {
        notifyBuild(currentBuild.result)
