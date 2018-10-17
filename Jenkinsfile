@@ -30,7 +30,7 @@ node {
        ex = e.toString()
        throw e
     } finally {
-        if (currentBuild.result="FAILED") {
+        if (currentBuild.result == "FAILED") {
             notifyBuild(currentBuild.result, ex)
         } else {
             notifyBuild(currentBuild.result)
