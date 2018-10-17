@@ -29,7 +29,6 @@ node {
        currentBuild.result = "FAILED"
        echo "vivek"
        echo e.toString()
-       echo $env.STAGE_NAME
        throw e
     } finally {
        notifyBuild(currentBuild.result)
@@ -45,7 +44,7 @@ def notifyBuild(String buildStatus = 'STARTED') {
   // Default values
   def colorName = 'RED'
   def colorCode = '#FF0000'
-  def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
+  def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}] ${env.STAGE_NAME}'"
   def summary = "${subject} (${env.BUILD_URL})"
 
   // Override default values based on build status
