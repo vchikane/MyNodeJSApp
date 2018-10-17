@@ -30,9 +30,10 @@ node {
        echo "vivek"
        echo e.toString()
        echo env.STAGE_NAME
+       ex = e.toString()
        throw e
     } finally {
-       notifyBuild(currentBuild.result, e.toString())
+       notifyBuild(currentBuild.result, ex)
     }
   
 }
