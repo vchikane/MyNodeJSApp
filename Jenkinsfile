@@ -27,6 +27,7 @@ node {
 
    } catch (e) {
        currentBuild.result = "FAILED"
+       echo "vivek"
        echo e.toString()
        throw e
     } finally {
