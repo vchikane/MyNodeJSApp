@@ -32,7 +32,7 @@ node {
     } finally {
         if (currentBuild.result == "FAILED") {
             notifyBuild(currentBuild.result, ex)
-        } else if( (currentBuild.result == null) or (currentBuild.result == "") ) {
+        } else if( (currentBuild.result == null) || (currentBuild.result == "") ) {
             notifyBuild(currentBuild.result)
         }
     }
