@@ -20,7 +20,7 @@ node {
 
     stage ('Build') {
         withMaven(maven : 'maven_3_5_4'){
-            def maven = tool name: 'maven_3_5_4', type: 'maven'
+            def maven = tool name: 'maven_3_5', type: 'maven'
             bat 'mvn clean install -Ptest'
         }
     }
@@ -30,17 +30,13 @@ node {
        ex = e.toString()
        throw e
     } finally {
-        if (currentBuild.result == "FAILED") {
-            notifyBuild(currentBuild.result, ex)
-        } else if( (currentBuild.result == null) || (currentBuild.result == "") ) {
-            notifyBuild(currentBuild.result)
-        }
+        notifyBuild(currentBuild.result)
     }
   
 }
 
 // function for sending slack notifictions
-def notifyBuild(String buildStatus = 'STARTED', String ex) {
+def notifyBuild(String buildStatus = 'STARTED') {
   // build status of null means successful
   buildStatus =  buildStatus ?: 'SUCCESSFUL'
 
