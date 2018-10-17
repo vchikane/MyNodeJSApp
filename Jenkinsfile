@@ -56,6 +56,8 @@ def notifyBuild(String buildStatus = 'STARTED') {
     color = 'GREEN'
     colorCode = '#00FF00'
   } else {
+      echo "chikane"
+      echo e.toString()
     color = 'RED'
     colorCode = '#FF0000'
   }
