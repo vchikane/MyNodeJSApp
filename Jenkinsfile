@@ -27,9 +27,6 @@ node {
 
    } catch (e) {
        currentBuild.result = "FAILED"
-       echo "vivek"
-       echo e.toString()
-       echo env.STAGE_NAME
        ex = e.toString()
        throw e
     } finally {
@@ -53,16 +50,17 @@ def notifyBuild(String buildStatus = 'STARTED', String ex) {
   if (buildStatus == 'STARTED') {
     color = 'YELLOW'
     colorCode = '#FFFF00'
+    slackSend (color: colorCode, message: summary)
   } else if (buildStatus == 'SUCCESSFUL') {
     color = 'GREEN'
     colorCode = '#00FF00'
+    slackSend (color: colorCode, message: summary)
   } else {
-      echo "chikane"
-      echo ex
     color = 'RED'
     colorCode = '#FF0000'
+    errorMessage = ex
+    slackSend (color: colorCode, message: summary, error: errorMessage)
+
   }
 
-  // Send notifications
-  slackSend (color: colorCode, message: summary)
 }
